@@ -1,3 +1,13 @@
+# Details
+* branch based on this [bug](https://github.com/qmk/qmk_firmware/pull/9485)
+* also this guide on [flashing with bootloader](https://beta.docs.qmk.fm/using-qmk/guides/flashing/flashing)
+
+* command to compile jimmy's board
+> qmk compile -kb massdrop/alt -km jimmy
+
+* flash the hardware
+> qmk flash -kb massdrop/alt -km jimmy
+
 # Quantum Mechanical Keyboard Firmware
 
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
