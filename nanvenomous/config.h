@@ -1,5 +1,6 @@
 #pragma once
 
+#define AUDIO_INIT_DELAY
 #ifdef AUDIO_ENABLE
     #define STARTUP_SONG SONG(PLANCK_SOUND)
     // #define STARTUP_SONG SONG(NO_SOUND)
