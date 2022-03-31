@@ -61,14 +61,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |Space |Enter |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | CAPS |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   ;  | FUN  |
+ * | CAPS |   Z  |   X  |   C  |   V  |   B  |   N  |   M  | LEAD |   .  |   ;  | FUN  |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
     KC_LCTL, KC_LALT, KC_LGUI, NUM,     KC_LSFT, MOV,     KC_TAB,  KC_RSFT, SYM,     KC_RGUI, KC_RALT, KC_RCTL,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SPC,  KC_ENT,
-    KC_CAPS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SCLN, FUN
+    KC_CAPS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_LEAD, KC_DOT,  KC_SCLN, FUN
 ),
 
 /* SYM
@@ -397,6 +397,8 @@ void dip_update(uint8_t index, bool active) {
    }
 }
 
+LEADER_EXTERNS();
+
 void matrix_scan_user(void) {
   #ifdef AUDIO_ENABLE
     if (muse_mode) {
@@ -411,6 +413,40 @@ void matrix_scan_user(void) {
       muse_counter = (muse_counter + 1) % muse_tempo;
     }
   #endif
+  LEADER_DICTIONARY() {
+    leading = false;
+    leader_end();
+
+    SEQ_ONE_KEY(KC_F) {
+      register_code(KC_TAB);
+      unregister_code(KC_TAB);
+    }
+    SEQ_ONE_KEY(KC_G) {
+      register_code(KC_ENT);
+      unregister_code(KC_ENT);
+    }
+    SEQ_ONE_KEY(KC_D) {
+      register_code(KC_LSFT);
+      register_code(KC_TAB);
+      unregister_code(KC_TAB);
+      unregister_code(KC_LSFT);
+    }
+    SEQ_ONE_KEY(KC_S) {
+      register_code(KC_ESC);
+      unregister_code(KC_ESC);
+    }
+    SEQ_ONE_KEY(KC_LEAD) {
+      register_code(KC_COMM);
+      unregister_code(KC_COMM);
+    }
+// KC_COMM ,
+    /* SEQ_TWO_KEYS(KC_D, KC_D) { */
+    /*   SEND_STRING(SS_LCTL("a") SS_LCTL("c")); */
+    /* } */
+    /* SEQ_THREE_KEYS(KC_D, KC_D, KC_S) { */
+    /*   SEND_STRING("https://start.duckduckgo.com\n"); */
+    /* } */
+  }
 }
 
 bool music_mask_user(uint16_t keycode) {

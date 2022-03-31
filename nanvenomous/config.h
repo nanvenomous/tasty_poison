@@ -11,6 +11,9 @@
                                 }
 #endif
 
+#define LEADER_TIMEOUT 100
+#define LEADER_NO_TIMEOUT
+
 /*
  * MIDI options
  */
