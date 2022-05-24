@@ -5,9 +5,11 @@ this github repo is dedicated to a custom planck assembly and layout by Matthew 
 ![planck build picture](./rsrc/keeb.png)
 
 # Installation
+
 ### [Documentation](https://docs.qmk.fm)
 
 ### Setup
+
 ```
 yay -Sy qmk
 qmk setup mrgarelli/qmk_firmware
@@ -15,18 +17,24 @@ qmk setup mrgarelli/qmk_firmware
 
 # Building and Developemnt
 
-* path to current configuration
+- path to current configuration
+
 ```
 ./keyboards/planck/keymaps/ergo
 ```
 
-* command to compile only
+- command to compile only
+
 ```
-qmk compile -kb planck/rev6 -km ergo
+qmk compile -kb planck/rev6 -km nanvenomous
+qmk compile -kb keebio/nyquist/rev3 -km nanvenomous
 ```
-* command to flash (board must be in reset mode)
+
+- command to flash (board must be in reset mode)
+
 ```
-qmk flash -kb planck/rev6 -km ergo
+qmk flash -kb planck/rev6 -km nanvenomous
+qmk flash -kb keebio/nyquist/rev3 -km nanvenomous
 ```
 
 # Other Resources
@@ -37,16 +45,16 @@ qmk flash -kb planck/rev6 -km ergo
 
 ### Quantum Mechanical Keyboard Firmware
 
-This is a keyboard firmware based on the [tmk\_keyboard firmware](https://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR and ARM controllers.
+This is a keyboard firmware based on the [tmk_keyboard firmware](https://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR and ARM controllers.
 
 ### Supported Keyboards
 
-* [Planck](/keyboards/planck/)
-* [Preonic](/keyboards/preonic/)
-* [ErgoDox EZ](/keyboards/ergodox_ez/)
-* [Clueboard](/keyboards/clueboard/)
-* [Cluepad](/keyboards/clueboard/17/)
-* [Atreus](/keyboards/atreus/)
+- [Planck](/keyboards/planck/)
+- [Preonic](/keyboards/preonic/)
+- [ErgoDox EZ](/keyboards/ergodox_ez/)
+- [Clueboard](/keyboards/clueboard/)
+- [Cluepad](/keyboards/clueboard/17/)
+- [Atreus](/keyboards/atreus/)
 
 ### Maintainers
 
