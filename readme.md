@@ -1,27 +1,102 @@
-# Planck Layout
+# Layout (for olkb planck & nyquist)
 
-this github repo is dedicated to a custom planck assembly and layout by Matthew Garelli
+### Qwerty
+```
+  ,-----------------------------------------------------------------------------------.
+  | Ctrl | Alt  | GUI  | NUM  |Shift | MOV  | TAB  |Shift | SYM  | GUI  | Alt  | Ctrl |
+  |------+------+------+------+------+-------------+------+------+------+------+------|
+  | TAB  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
+  |------+------+------+------+------+-------------+------+------+------+------+------|
+  | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |Space |Enter |
+  |------+------+------+------+------+------|------+------+------+------+------+------|
+  | CAPS |   Z  |   X  |   C  |   V  |   B  |   N  |   M  | LEAD |   .  |   ;  | FUN  |
+  `-----------------------------------------------------------------------------------'
+```
 
-![planck build picture](./rsrc/keeb.png)
+### SYM
+```
+  ,-----------------------------------------------------------------------------------.
+  |      |      |      |      |      |      |      |      |      |      |      |      |
+  |------+------+------+------+------+-------------+------+------+------+------+------|
+  |   `  |   !  |   @  |   {  |   }  |   _  |      |      |      |      |      |      |
+  |------+------+------+------+------+-------------+------+------+------+------+------|
+  |   ~  |   '  |   "  |   (  |   )  |   #  |      |      |      |      |      |      |
+  |------+------+------+------+------+------|------+------+------+------+------+------|
+  |      |   \  |   ?  |   [  |   ]  |   &  |      |      |      |      |      |      |
+  `-----------------------------------------------------------------------------------'
+```
+
+### NUM
+```
+  ,-----------------------------------------------------------------------------------.
+  |      |      |      |      |      |      |      |   *  |   +  |      |   %  |      |
+  |------+------+------+------+------+-------------+------+------+------+------+------|
+  |      |      |      |      |      |      |   ^  |   7  |   8  |   9  |   $  |      |
+  |------+------+------+------+------+-------------+------+------+------+------+------|
+  |      |      |      |      |      |      |   -  |   4  |   5  |   6  |   =  |  :   |
+  |------+------+------+------+------+------+------+------+------+------+------+------|
+  |      |      |      |      |      |      |   0  |   1  |   2  |   3  |   /  |  |   |
+  `-----------------------------------------------------------------------------------'
+```
+
+### MOV
+```
+  ,-----------------------------------------------------------------------------------.
+  |      |      |      |      |      |      |      |      |      |      |      |      |
+  |------+------+------+------+------+-------------+------+------+------+------+------|
+  |      |      |      |      |      |      |      | Tab  |Enter |      |  PU  |      |
+  |------+------+------+------+------+------|------+------+------+------+------+------|
+  |      |      |      |      |      |      |  LT  |  DN  |  UP  |  RT  |  PD  |      |
+  |------+------+------+------+------+------+------+------+------+------+------+------|
+  |      |      |      |      |      |      |      |  BK  | HOME | END  |  DL  |      |
+  `-----------------------------------------------------------------------------------'
+```
+
+### FUN
+```
+  ,-----------------------------------------------------------------------------------.
+  |      |  F1  |  F2  |  F3  |  F4  |      |      |      |      |      |      |      |
+  |------+------+------+------+------+-------------+------+------+------+------+------|
+  |      |  F5  |  F6  |  F7  |  F8  |      |      |      |      |      |      |      |
+  |------+------+------+------+------+------|------+------+------+------+------+------|
+  |Reset |  F9  |  F10 |  F11 |  F12 |      | Vol- | BRDN | BRUP | Vol+ |      |      |
+  |------+------+------+------+------+------+------+------+------+------+------+------|
+  |      |Pr Scr|      |      |      |      |      |      |      |      |      |      |
+  `-----------------------------------------------------------------------------------'
+```
+
+### LEAD
+```
+  ,-----------------------------------------------------------------------------------.
+  |      |      |      |      |      |      |      |      |      |      |      |      |
+  |------+------+------+------+------+-------------+------+------+------+------+------|
+  |      |      |      |      |      |      |      |      |      |      |      |      |
+  |------+------+------+------+------+------|------+------+------+------+------+------|
+  |      |      |Escape|SftTab| Tab  |Enter |      |      |      |      |      |      |
+  |------+------+------+------+------+------+------+------+------+------+------+------|
+  |      |      |      |      |      |      |      |      |Comma |      |      |      |
+  `-----------------------------------------------------------------------------------'
+```
 
 # Installation
 
-### [Documentation](https://docs.qmk.fm)
-
-### Setup
-
+* full instructions to setup a qmk environment can be found [here](https://docs.qmk.fm/#/newbs_getting_started)
+* on arch linux
 ```
-yay -Sy qmk
-qmk setup mrgarelli/qmk_firmware
+sudo pacman -S qmk
+qmk setup --home "${HOME}/projects/qmk_firmware"
+```
+* clone this repository & enter repo
+```
+git clone https://github.com/nanvenomous/tasty_poison.git
+cd tasty_poison
+```
+* copy to local qmk\_firmware
+```
+cp -r planck/nanvenomous ~/projects/qmk_firmware/keyboards/planck/keymaps/
 ```
 
 # Building and Developemnt
-
-- path to current configuration
-
-```
-./keyboards/planck/keymaps/ergo
-```
 
 - command to compile only
 
@@ -43,21 +118,4 @@ qmk flash -kb keebio/nyquist/rev3 -km nanvenomous
 
 [all unicode symbols](https://fsymbols.com/keyboard/linux/compose/)
 
-### Quantum Mechanical Keyboard Firmware
-
-This is a keyboard firmware based on the [tmk_keyboard firmware](https://github.com/tmk/tmk_keyboard) with some useful features for Atmel AVR and ARM controllers.
-
-### Supported Keyboards
-
-- [Planck](/keyboards/planck/)
-- [Preonic](/keyboards/preonic/)
-- [ErgoDox EZ](/keyboards/ergodox_ez/)
-- [Clueboard](/keyboards/clueboard/)
-- [Cluepad](/keyboards/clueboard/17/)
-- [Atreus](/keyboards/atreus/)
-
-### Maintainers
-
-QMK is developed and maintained by Jack Humbert of OLKB with contributions from the community, and of course, [Hasu](https://github.com/tmk). The OLKB product firmwares are maintained by [Jack Humbert](https://github.com/jackhumbert), the Ergodox EZ by [ZSA Technology Labs](https://github.com/zsa), the Clueboard by [Zach White](https://github.com/skullydazed), and the Atreus by [Phil Hagelberg](https://github.com/technomancy).
-
-### [Official Website](https://qmk.fm)
+[official qmk documentation](https://docs.qmk.fm)
