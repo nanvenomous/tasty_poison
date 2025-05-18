@@ -98,6 +98,17 @@ cp -r planck/nanvenomous ~/projects/qmk_firmware/keyboards/planck/keymaps/
 
 # Building and Developemnt
 
+```bash
+qmk config user.keyboard=keebio/nyquist/rev5
+qmk config user.keymap=venom
+qmk new-keymap
+```
+
+
+```bash
+udiskie
+```
+
 - command to compile only
 
 ```
